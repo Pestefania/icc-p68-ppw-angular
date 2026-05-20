@@ -1,0 +1,35 @@
+<section class="students-page">
+
+  <h1 class="students-page__title">
+    Estudiantes
+  </h1>
+
+  <p class="students-page__subtitle">
+    Selecciona un estudiante para ver su detalle.
+  </p>
+
+  <ul class="students-list">
+
+    @for (student of students(); track student.id) {
+
+      <li class="students-list__item">
+
+        <a [routerLink]="['/students', student.id]">
+
+          {{ student.name }}
+
+        </a>
+
+      </li>
+
+    } @empty {
+
+      <li>
+        No hay estudiantes
+      </li>
+
+    }
+
+  </ul>
+
+</section>

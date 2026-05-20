@@ -1,0 +1,45 @@
+.app-header {
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+
+  background: #14192d;
+
+  color: white;
+
+  padding: 20px 28px;
+}
+
+.app-header__brand {
+  font-size: 24px;
+
+  font-weight: 800;
+
+  letter-spacing: 1px;
+}
+
+.app-header__nav {
+  display: flex;
+
+  gap: 30px;
+}
+
+.nav-link {
+  color: #d1d5db;
+
+  text-decoration: none;
+
+  font-size: 18px;
+
+  border-bottom: 3px solid transparent;
+
+  padding-bottom: 6px;
+}
+
+.nav-link--active {
+  color: white;
+
+  border-bottom-color: red;
+}
