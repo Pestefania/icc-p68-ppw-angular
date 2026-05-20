@@ -5,16 +5,16 @@ import { Router } from '@angular/router';
 import { AppHeroComponent } from '../../../components/app-hero/hero';
 
 @Component({
-  selector: 'app-home-page',
-  imports: [AppHeroComponent],
-  templateUrl: './home-page.html',
-  styleUrl: './home-page.css',
+  selector:'app-home-page',
+  imports:[AppHeroComponent],
+  templateUrl:'./home-page.html',
+  styleUrl:'./home-page.css'
 })
 export class HomePage {
 
   private router = inject(Router);
 
-  goToStudentsPage(): void {
+  goToStudentsPage():void{
     this.router.navigate(['/students']);
   }
 

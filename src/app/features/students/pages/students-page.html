@@ -1,35 +1,28 @@
-<section class="students-page">
+<section class="space-y-4">
 
-  <h1 class="students-page__title">
-    Estudiantes
-  </h1>
+    <h1 class="text-3xl font-bold">
+        Estudiantes
+    </h1>
 
-  <p class="students-page__subtitle">
-    Selecciona un estudiante para ver su detalle.
-  </p>
+    <p class="text-gray-500">
+        Selecciona un estudiante
+    </p>
 
-  <ul class="students-list">
+    <div class="grid gap-4">
 
-    @for (student of students(); track student.id) {
+        @for(student of students(); track student.id){
 
-      <li class="students-list__item">
+            <a
+                [routerLink]="['/students',student.id]"
+                class="border rounded-xl p-5 hover:bg-gray-100"
+            >
 
-        <a [routerLink]="['/students', student.id]">
+                {{student.name}}
 
-          {{ student.name }}
+            </a>
 
-        </a>
+        }
 
-      </li>
-
-    } @empty {
-
-      <li>
-        No hay estudiantes
-      </li>
-
-    }
-
-  </ul>
+    </div>
 
 </section>

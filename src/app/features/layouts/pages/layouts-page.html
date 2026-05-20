@@ -1,1 +1,281 @@
+<section class="space-y-10">
 
+  <header class="space-y-3">
+    <p class="text-sm font-semibold uppercase tracking-[0.3em] text-sky-700">
+      Layouts
+    </p>
+
+    <h1 class="text-3xl font-bold tracking-tight text-slate-900 md:text-4xl">
+      Distribuciones de layout con Tailwind
+    </h1>
+
+    <p class="max-w-2xl leading-7 text-slate-600">
+      Grid y Flex usando cards
+    </p>
+
+    <p class="text-sm font-semibold text-slate-800">
+      Desarrollado por <span class="text-sky-700 font-bold">Denisse Paredes</span>
+    </p>
+  </header>
+
+
+  <article class="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm">
+    <h2 class="mb-1 text-xl font-semibold text-slate-900">
+      Grid de 4 columnas
+    </h2>
+    <p class="mb-5 text-sm text-slate-500">
+      Usuarios activos, tareas y métricas
+    </p>
+
+    <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+      <article class="rounded-2xl bg-linear-to-br from-sky-400 to-blue-600 p-5 shadow-lg text-white">
+        <p class="text-xs uppercase opacity-80">Card 01</p>
+        <h3 class="mt-2 text-lg font-semibold">Usuarios activos</h3>
+        <p class="mt-2 text-sm opacity-90">Indicador rápido de actividad.</p>
+      </article>
+
+      <article class="rounded-2xl bg-linear-to-br from-violet-500 to-purple-700 p-5 shadow-lg text-white">
+        <p class="text-xs uppercase opacity-80">Card 02</p>
+        <h3 class="mt-2 text-lg font-semibold">Tareas pendientes</h3>
+        <p class="mt-2 text-sm opacity-90">Resumen visual de trabajo.</p>
+      </article>
+
+      <article class="rounded-2xl bg-linear-to-br from-emerald-400 to-teal-600 p-5 shadow-lg text-white">
+        <p class="text-xs uppercase opacity-80">Card 03</p>
+        <h3 class="mt-2 text-lg font-semibold">Ingresos</h3>
+        <p class="mt-2 text-sm opacity-90">Métrica financiera inmediata.</p>
+      </article>
+
+      <article class="rounded-2xl bg-linear-to-br from-rose-400 to-pink-600 p-5 shadow-lg text-white">
+        <p class="text-xs uppercase opacity-80">Card 04</p>
+        <h3 class="mt-2 text-lg font-semibold">Satisfacción</h3>
+        <p class="mt-2 text-sm opacity-90">Seguimiento de experiencia.</p>
+      </article>
+    </div>
+  </article>
+
+
+  <article class="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm">
+    <h2 class="mb-1 text-xl font-semibold text-slate-900">
+      Grid con sidebar
+    </h2>
+    <p class="mb-5 text-sm text-slate-500">
+      Columna fija de 240px + área principal flexible. Solo sombra, sin gradiente.
+    </p>
+
+    <div class="grid gap-4 lg:grid-cols-[240px_minmax(0,1fr)]">
+      <aside class="rounded-2xl border border-slate-100 bg-white p-6 shadow-md text-slate-700">
+        <p class="text-xs font-semibold uppercase tracking-wider text-sky-700">Sidebar</p>
+        <h3 class="mt-2 text-xl font-bold text-slate-900">Menú principal</h3>
+        <p class="mt-2 text-sm text-slate-500 leading-relaxed">
+          Agrupa accesos a secciones internas sin competir con el contenido.
+        </p>
+      </aside>
+
+      <div class="rounded-2xl border border-slate-100 bg-white p-6 shadow-md text-slate-700">
+        <p class="text-xs font-semibold uppercase tracking-wider text-sky-700">Contenido</p>
+        <h3 class="mt-2 text-xl font-bold text-slate-900">Panel central</h3>
+        <p class="mt-2 text-sm text-slate-500 leading-relaxed">
+          Ocupa el espacio disponible con títulos, métricas y acciones prioritarias.
+        </p>
+      </div>
+    </div>
+  </article>
+
+
+  <article class="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm">
+    <h2 class="mb-5 text-xl font-semibold text-slate-900">
+      Grid de 3 columnas
+    </h2>
+    <div class="grid gap-6 md:grid-cols-3">
+      <article class="rounded-2xl bg-linear-to-tr from-amber-400 to-orange-500 p-5 text-white">
+        <p class="text-xs uppercase opacity-80">Sección A</p>
+        <h3 class="mt-2 font-semibold">Primero</h3>
+        <p class="mt-2 text-sm">Contenido de primera columna.</p>
+      </article>
+      <article class="rounded-2xl bg-linear-to-tr from-cyan-400 to-sky-600 p-5 text-white">
+        <p class="text-xs uppercase opacity-80">Sección B</p>
+        <h3 class="mt-2 font-semibold">Segundo</h3>
+        <p class="mt-2 text-sm">Contenido de segunda columna.</p>
+      </article>
+      <article class="rounded-2xl bg-linear-to-tr from-fuchsia-400 to-pink-600 p-5 text-white">
+        <p class="text-xs uppercase opacity-80">Sección C</p>
+        <h3 class="mt-2 font-semibold">Tercero</h3>
+        <p class="mt-2 text-sm">Contenido de tercera columna.</p>
+      </article>
+    </div>
+  </article>
+
+
+  <article class="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm">
+    <h2 class="mb-5 text-xl font-semibold text-slate-900">
+      Flex carrusel horizontal
+    </h2>
+    <div class="flex gap-4 overflow-x-auto pb-2">
+      <article class="min-w-[16rem] shrink-0 rounded-2xl bg-linear-to-br from-sky-400 to-blue-600 p-5 shadow-md text-white">
+        <h3 class="font-semibold">Primer elemento</h3>
+        <p class="mt-2 text-sm">Se desplaza horizontalmente.</p>
+      </article>
+      <article class="min-w-[16rem] shrink-0 rounded-2xl bg-linear-to-br from-violet-500 to-purple-700 p-5 shadow-md text-white">
+        <h3 class="font-semibold">Segundo elemento</h3>
+        <p class="mt-2 text-sm">Compatible con móviles.</p>
+      </article>
+      <article class="min-w-[16rem] shrink-0 rounded-2xl bg-linear-to-br from-emerald-400 to-teal-600 p-5 shadow-md text-white">
+        <h3 class="font-semibold">Tercer elemento</h3>
+        <p class="mt-2 text-sm">Jerarquía consistente.</p>
+      </article>
+      <article class="min-w-[16rem] shrink-0 rounded-2xl bg-linear-to-br from-rose-400 to-pink-600 p-5 shadow-md text-white">
+        <h3 class="font-semibold">Cuarto elemento</h3>
+        <p class="mt-2 text-sm">No rompe el layout.</p>
+      </article>
+    </div>
+  </article>
+
+
+  <article class="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm">
+    <h2 class="mb-1 text-xl font-semibold text-slate-900">
+      Flex: wrap con alineación
+    </h2>
+    <p class="mb-5 text-sm text-slate-500">
+      Los cards saltan de fila automáticamente. Solo sombra, sin gradiente.
+    </p>
+
+    <div class="flex flex-wrap gap-4">
+      <article class="w-full sm:w-64 rounded-2xl border border-slate-100 bg-white p-5 shadow-md text-slate-700">
+        <p class="text-xs font-semibold uppercase tracking-wider text-sky-700">Item 01</p>
+        <h3 class="mt-2 text-xl font-bold text-slate-900">Card básica</h3>
+        <p class="mt-2 text-sm text-slate-500 leading-relaxed">Sombra prominente, sin gradiente.</p>
+      </article>
+
+      <article class="w-full sm:w-64 rounded-2xl border border-slate-100 bg-white p-5 shadow-md text-slate-700">
+        <p class="text-xs font-semibold uppercase tracking-wider text-sky-700">Item 02</p>
+        <h3 class="mt-2 text-xl font-bold text-slate-900">Card básica</h3>
+        <p class="mt-2 text-sm text-slate-500 leading-relaxed">Se reorganiza con el ancho disponible.</p>
+      </article>
+
+      <article class="w-full sm:w-64 rounded-2xl border border-slate-100 bg-white p-5 shadow-md text-slate-700">
+        <p class="text-xs font-semibold uppercase tracking-wider text-sky-700">Item 03</p>
+        <h3 class="mt-2 text-xl font-bold text-slate-900">Card básica</h3>
+        <p class="mt-2 text-sm text-slate-500 leading-relaxed">Jerarquía clara con solo sombra.</p>
+      </article>
+
+      <article class="w-full sm:w-64 rounded-2xl border border-slate-100 bg-white p-5 shadow-md text-slate-700">
+        <p class="text-xs font-semibold uppercase tracking-wider text-sky-700">Item 04</p>
+        <h3 class="mt-2 text-xl font-bold text-slate-900">Card básica</h3>
+        <p class="mt-2 text-sm text-slate-500 leading-relaxed">Estructura mínima sin decoración extra.</p>
+      </article>
+
+      <article class="w-full sm:w-64 rounded-2xl border border-slate-100 bg-white p-5 shadow-md text-slate-700">
+        <p class="text-xs font-semibold uppercase tracking-wider text-sky-700">Item 05</p>
+        <h3 class="mt-2 text-xl font-bold text-slate-900">Card básica</h3>
+        <p class="mt-2 text-sm text-slate-500 leading-relaxed">El ancho fijo define cuántos caben por fila.</p>
+      </article>
+    </div>
+  </article>
+
+
+  <article class="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm">
+    <h2 class="mb-1 text-xl font-semibold text-slate-900">
+      Grid: Formulario de datos / Distribución desigual
+    </h2>
+    <p class="mb-5 text-sm text-slate-500">
+      Uso de <code>grid-cols-[1fr_3fr]</code> para estructurar pares de etiquetas y campos de entrada de datos.
+    </p>
+
+    <div class="grid grid-cols-[120px_1fr] gap-x-4 gap-y-3 rounded-2xl bg-slate-50 p-5 border border-slate-100">
+      <div class="flex items-center justify-end pr-2 font-semibold text-sm text-slate-600">Nombre:</div>
+      <div class="rounded-xl bg-white p-3 shadow-md border border-slate-100 text-sm text-slate-800 font-medium">Denisse Paredes</div>
+
+      <div class="flex items-center justify-end pr-2 font-semibold text-sm text-slate-600">Especialidad:</div>
+      <div class="rounded-xl bg-white p-3 shadow-md border border-slate-100 text-sm text-slate-800 font-medium">Ciencias de la Computación</div>
+
+      <div class="flex items-center justify-end pr-2 font-semibold text-sm text-slate-600">Estado:</div>
+      <div class="rounded-xl bg-white p-3 shadow-md border border-slate-100 text-sm text-emerald-600 font-bold uppercase tracking-wider">Activo</div>
+    </div>
+  </article>
+
+
+  <article class="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm">
+    <h2 class="mb-1 text-xl font-semibold text-slate-900">
+      Grid: Distribución interna de fila de dimensiones fijas (Rows)
+    </h2>
+    <p class="mb-5 text-sm text-slate-500">
+      Uso de <code>grid-rows-[110px_auto]</code> para fijar el tamaño exacto del área superior y dejar libre la inferior.
+    </p>
+
+    <div class="grid md:grid-cols-2 gap-4">
+      <div class="grid grid-rows-[110px_auto] rounded-2xl bg-slate-50 p-4 border border-slate-100 min-h-[240px]">
+        <div class="rounded-xl bg-white p-4 shadow-md border border-slate-100 flex flex-col justify-between">
+          <span class="text-xs font-bold text-sky-700 uppercase tracking-wider">Módulo Operativo</span>
+          <h4 class="text-lg font-bold text-slate-900">Servidor Principal</h4>
+        </div>
+        <div class="rounded-xl bg-white p-4 shadow-md border border-slate-100 mt-3 text-sm text-slate-500 leading-relaxed">
+          Monitoreo constante del estado del sistema y flujos de transferencia de red virtualizados en tiempo real.
+        </div>
+      </div>
+
+      <div class="grid grid-rows-[110px_auto] rounded-2xl bg-slate-50 p-4 border border-slate-100 min-h-[240px]">
+        <div class="rounded-xl bg-white p-4 shadow-md border border-slate-100 flex flex-col justify-between">
+          <span class="text-xs font-bold text-violet-700 uppercase tracking-wider">Módulo Base</span>
+          <h4 class="text-lg font-bold text-slate-900">Almacenamiento SQL</h4>
+        </div>
+        <div class="rounded-xl bg-white p-4 shadow-md border border-slate-100 mt-3 text-sm text-slate-500 leading-relaxed">
+          Esquemas relacionales y procedimientos PL/SQL optimizados para transacciones consistentes y seguras.
+        </div>
+      </div>
+    </div>
+  </article>
+
+
+  <article class="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm">
+    <h2 class="mb-1 text-xl font-semibold text-slate-900">
+      Flexbox: Alineación e inversión horizontal (flex-row-reverse)
+    </h2>
+    <p class="mb-5 text-sm text-slate-500">
+      Uso de <code>flex-row-reverse</code> para alinear y priorizar elementos interactivos desde el extremo derecho al izquierdo.
+    </p>
+
+    <div class="flex flex-row-reverse gap-3 rounded-2xl bg-slate-50 p-4 border border-slate-100">
+      <button class="rounded-xl bg-slate-900 px-5 py-3 text-sm font-semibold text-white shadow-md hover:bg-slate-800 transition-colors">
+        Guardar cambios
+      </button>
+
+      <button class="rounded-xl border border-slate-200 bg-white px-5 py-3 text-sm font-semibold text-slate-700 shadow-md hover:bg-slate-100 transition-colors">
+        Modificar datos
+      </button>
+
+      <button class="rounded-xl border border-slate-200 bg-white px-5 py-3 text-sm font-semibold text-slate-400 shadow-md hover:text-slate-600 transition-colors">
+        Cancelar
+      </button>
+    </div>
+  </article>
+
+
+  <article class="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm">
+    <h2 class="mb-1 text-xl font-semibold text-slate-900">
+      Grid: Distribución proporcional asimétrica (1/4 - 3/4)
+    </h2>
+    <p class="mb-5 text-sm text-slate-500">
+      Uso de <code>lg:grid-cols-[1fr_3fr]</code> para estructurar bloques informativos donde el contenido derecho toma el rol principal.
+    </p>
+
+    <div class="grid gap-4 lg:grid-cols-[1fr_3fr]">
+      <div class="rounded-2xl border border-slate-100 bg-white p-5 shadow-md flex flex-col justify-between">
+        <div>
+          <span class="text-xs font-bold uppercase tracking-wider text-rose-600">Estadísticas</span>
+          <h4 class="text-2xl font-black text-slate-900 mt-2">94.2%</h4>
+        </div>
+        <p class="text-xs text-slate-400 mt-4">Rendimiento promedio global verificado en la última sesión de pruebas.</p>
+      </div>
+
+      <div class="rounded-2xl border border-slate-100 bg-white p-5 shadow-md">
+        <span class="text-xs font-bold uppercase tracking-wider text-sky-700">Informe Técnico</span>
+        <h3 class="text-lg font-bold text-slate-900 mt-1">Análisis de la plataforma y entornos de desarrollo</h3>
+        <p class="text-sm text-slate-500 mt-3 leading-relaxed">
+          Las arquitecturas basadas en componentes independientes y layouts de grillas flexibles reducen de manera drástica la sobrecarga de estilos CSS en el cliente, permitiendo interfaces ligeras, adaptativas y de alta velocidad de respuesta.
+        </p>
+      </div>
+    </div>
+  </article>
+
+</section>
