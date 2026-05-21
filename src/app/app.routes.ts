@@ -4,26 +4,50 @@ import { HomePage } from './features/home/pages/home-page';
 import { StudentsPage } from './features/students/pages/students-page';
 import { StudentDetailPage } from './features/students/pages/student-detail-page';
 import { LayoutsPage } from './features/layouts/pages/layouts-page';
+import { ProfilePage } from './features/profile/pages/profile-page';
+import { ProjectConfigPage } from './features/project/pages/project-config-page';
+import { SignupPage } from './features/signup-page/signup-page';
 
 export const routes: Routes = [
+
   {
     path: '',
     component: HomePage,
   },
+
   {
     path: 'students',
     component: StudentsPage,
   },
+
   {
     path: 'students/:id',
     component: StudentDetailPage,
   },
+
   {
-    path:'layouts',
-    component:LayoutsPage
+    path: 'layouts',
+    component: LayoutsPage,
   },
+
+  {
+    path: 'signup',
+    component: SignupPage,
+  },
+
+  {
+    path:'profile',
+    component:ProfilePage
+  },
+
+  {
+    path:'project-config',
+    component:ProjectConfigPage
+  },
+
   {
     path: '**',
     redirectTo: '',
   },
+
 ];

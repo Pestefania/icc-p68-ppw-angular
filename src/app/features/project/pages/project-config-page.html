@@ -1,0 +1,272 @@
+<section class="max-w-3xl mx-auto space-y-6 p-6">
+
+<header class="space-y-2">
+
+<p class="text-sm font-semibold uppercase tracking-[0.3em] text-sky-700">
+Proyecto
+</p>
+
+<h1 class="text-3xl font-bold tracking-tight text-slate-900">
+Configuración del proyecto
+</h1>
+
+</header>
+
+
+<form
+[formGroup]="myForm"
+(ngSubmit)="onSubmit()"
+class="space-y-6"
+>
+
+<!-- NOMBRE -->
+
+<div class="space-y-2">
+
+<label class="block text-sm font-medium">
+Nombre del proyecto
+</label>
+
+<input
+type="text"
+formControlName="nombre"
+placeholder="Mi proyecto increíble"
+class="w-full rounded-lg border border-slate-300 px-3 py-2"
+/>
+
+@if(formUtils.isValidField(myForm,'nombre')){
+
+<p class="text-xs text-red-600">
+
+{{formUtils.getFieldError(myForm,'nombre')}}
+
+</p>
+
+}
+
+</div>
+
+
+
+<!-- AGREGAR LENGUAJE -->
+
+<div class="space-y-2">
+
+<label class="block text-sm font-medium">
+Agregar lenguaje
+</label>
+
+<div class="flex gap-2">
+
+<input
+type="text"
+[formControl]="newLenguaje"
+placeholder="Python Java Go"
+(keydown.enter)="onAddLenguaje();$event.preventDefault()"
+class="flex-1 rounded-lg border border-slate-300 px-3 py-2"
+/>
+
+<button
+type="button"
+(click)="onAddLenguaje()"
+class="rounded-lg bg-emerald-600 px-4 py-2 text-white"
+>
+
+Agregar
+
+</button>
+
+</div>
+
+
+@if(newLenguaje.touched && newLenguaje.invalid){
+
+<p class="text-xs text-red-600">
+
+Mínimo 3 caracteres
+
+</p>
+
+}
+
+</div>
+
+
+
+<!-- LISTA -->
+
+<div
+class="space-y-3"
+formArrayName="lenguajes"
+>
+
+<label>
+
+Lenguajes del proyecto
+
+</label>
+
+@for(control of lenguajes.controls;track control;let i=$index){
+
+<div class="flex gap-2">
+
+<input
+[formControlName]="i"
+class="flex-1 rounded-lg border border-slate-300 px-3 py-2"
+/>
+
+<button
+type="button"
+(click)="onDeleteLenguaje(i)"
+class="rounded-lg bg-red-600 px-4 py-2 text-white"
+>
+
+Eliminar
+
+</button>
+
+</div>
+
+
+@if(formUtils.isValidFieldInArray(lenguajes,i)){
+
+<p class="text-xs text-red-600">
+
+{{formUtils.getFieldErrorInArray(lenguajes,i)}}
+
+</p>
+
+}
+
+}
+
+
+@if(formUtils.isValidField(myForm,'lenguajes')){
+
+<p class="text-xs text-red-600">
+
+Debe tener al menos 2 lenguajes
+
+</p>
+
+}
+
+</div>
+
+
+
+<!-- RADIO -->
+
+<div class="space-y-2">
+
+<label>
+
+Tipo proyecto
+
+</label>
+
+
+<label class="flex gap-2">
+
+<input
+type="radio"
+value="frontend"
+formControlName="tipo"
+/>
+
+Frontend
+
+</label>
+
+
+<label class="flex gap-2">
+
+<input
+type="radio"
+value="backend"
+formControlName="tipo"
+/>
+
+Backend
+
+</label>
+
+
+<label class="flex gap-2">
+
+<input
+type="radio"
+value="fullstack"
+formControlName="tipo"
+/>
+
+Fullstack
+
+</label>
+
+</div>
+
+
+
+<!-- SWITCH -->
+
+<div class="flex gap-3">
+
+<input
+type="checkbox"
+formControlName="notificaciones"
+/>
+
+<span>
+
+Recibir notificaciones
+
+</span>
+
+</div>
+
+
+
+<!-- TERMINOS -->
+
+<div class="space-y-2">
+
+<label class="flex gap-2">
+
+<input
+type="checkbox"
+formControlName="terminosAceptados"
+/>
+
+Acepto términos
+
+</label>
+
+
+@if(formUtils.isValidField(myForm,'terminosAceptados')){
+
+<p class="text-xs text-red-600">
+
+{{formUtils.getFieldError(myForm,'terminosAceptados')}}
+
+</p>
+
+}
+
+</div>
+
+
+
+<button
+type="submit"
+class="w-full bg-sky-600 text-white rounded-lg py-2"
+>
+
+Guardar configuración
+
+</button>
+
+
+</form>
+
+</section>
