@@ -1,5 +1,6 @@
-import { Component, computed, signal } from '@angular/core';
+import { Component, computed, signal, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-hero',
@@ -10,27 +11,25 @@ import { CommonModule } from '@angular/common';
 })
 export class AppHeroComponent {
 
-  readonly title = signal('Componentes Standalone Reutilizables');
+  private router = inject(Router);
+
+  readonly title = signal('Cristina Loja');
 
   readonly topics = signal([
-    'signals',
-    'computed',
-    '@if',
-    '@for',
-    '@switch',
-    'pipes'
+    'Angular',
+    'Tailwind',
+    'TypeScript',
+    'Responsive Design',
+    'Standalone Components',
+    'DaisyUI'
   ]);
 
   readonly subtitle = computed(() =>
     `Temas activos: ${this.topics().length}`
   );
 
-  readonly viewMode = signal<'lista' | 'resumen'>('lista');
-
-  toggleMode(): void {
-    this.viewMode.update(m =>
-      m === 'lista' ? 'resumen' : 'lista'
-    );
+  goToStudentsPage(): void {
+    this.router.navigate(['/students']);
   }
 
 }

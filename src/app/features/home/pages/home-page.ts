@@ -1,6 +1,4 @@
-import { Component, inject } from '@angular/core';
-
-import { Router } from '@angular/router';
+import { Component } from '@angular/core';
 
 import { AppHeroComponent } from '../../../components/app-hero/hero';
 
@@ -11,11 +9,5 @@ import { AppHeroComponent } from '../../../components/app-hero/hero';
   styleUrl:'./home-page.css'
 })
 export class HomePage {
-
-  private router = inject(Router);
-
-  goToStudentsPage():void{
-    this.router.navigate(['/students']);
-  }
 
 }
