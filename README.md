@@ -57,3 +57,44 @@ Angular CLI does not come with an end-to-end testing framework by default. You c
 ## Additional Resources
 
 For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+src/
+│
+└── app/
+    │
+    ├── core/                           # Lógica global del negocio
+    │   ├── interfaces/                 # Modelos TypeScript para tipar la API
+    │   │   └── api-response.interface.ts
+    │   └── services/                   # Consumo HTTP y manejo de LocalStorage
+    │       └── data.service.ts
+    │
+    ├── shared/                         # Elementos comunes reutilizables
+    │   └── components/
+    │       ├── header/                 # Barra de navegación compartida
+    │       │   ├── header.component.html
+    │       │   └── header.component.ts
+    │       ├── footer/                 # Pie de página compartido
+    │       │   ├── footer.component.html
+    │       │   └── footer.component.ts
+    │       └── spinner/                # Indicador de carga (Loading)
+    │           ├── spinner.component.html
+    │           └── spinner.component.ts
+    │
+    ├── features/                       # Flujos y pantallas de la aplicación
+    │   ├── layout/                     # Contenedor base de la estructura general
+    │   │   ├── main-layout.component.html
+    │   │   └── main-layout.component.ts
+    │   │
+    │   ├── home/                       # Pantalla principal (Listado)
+    │   │   ├── components/             # Componentes exclusivos de la Home
+    │   │   │   ├── hero/               # Banner o panel informativo
+    │   │   │   └── card-item/          # Tarjetas individuales para la grilla
+    │   │   ├── home.component.html
+    │   │   └── home.component.ts
+    │   │
+    │   └── detail/                     # Pantalla de detalle expandido
+    │       ├── home.component.html
+    │       └── detail.component.ts
+    │
+    ├── app.routes.ts                   # Enrutamiento dinámico de la app
+    ├── app.config.ts                   # Configuración e inyección de dependencias
+    └── app.component.ts                # Componente raíz con el router-outlet

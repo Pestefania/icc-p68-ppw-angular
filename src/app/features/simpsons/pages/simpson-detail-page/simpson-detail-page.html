@@ -1,0 +1,80 @@
+<section class="mx-auto max-w-4xl space-y-6 p-4">
+  <a routerLink="/simpsons" class="btn btn-ghost btn-sm text-base-content/80 mb-2">
+    ← Volver al listado
+  </a>
+
+  @if (characterResource.isLoading()) {
+    <div class="flex h-56 items-center justify-center">
+      <span class="loading loading-spinner loading-lg text-primary"></span>
+    </div>
+  }
+
+  @if (characterResource.error()) {
+    <div class="alert alert-error">
+      <span>No se pudo cargar el personaje.</span>
+    </div>
+  }
+
+  @if (characterResource.hasValue()) {
+    <article class="card border border-base-300 bg-base-100 shadow-sm rounded-2xl overflow-hidden">
+      <div class="card-body gap-8 md:flex-row items-center md:items-start">
+        
+        <div class="flex-shrink-0">
+          <img
+            [src]="characterResource.value()!.portrait_path"
+            [alt]="characterResource.value()!.name"
+            class="h-56 w-56 rounded-2xl object-cover ring ring-base-300 ring-offset-2 ring-offset-base-100 block"
+          />
+        </div>
+
+        <div class="space-y-4 flex-1 w-full text-left">
+          <h2 class="text-4xl font-black tracking-tight text-base-content mb-4">
+            {{ characterResource.value()!.name }}
+          </h2>
+
+          <div class="space-y-2 text-base text-base-content/80">
+            <p><strong>Ocupación:</strong> {{ characterResource.value()!.occupation }}</p>
+            <p><strong>Género:</strong> {{ characterResource.value()!.gender || 'No registrado' }}</p>
+            <p><strong>Edad:</strong> {{ characterResource.value()!.age ?? 'No registrada' }}</p>
+          </div>
+
+          <div class="pt-2 flex flex-col sm:flex-row sm:items-center gap-4">
+            <div>
+              <span
+                class="badge badge-lg font-semibold px-4 py-3 text-sm"
+                [class.badge-success]="characterResource.value()!.status === 'Alive'"
+                [class.badge-error]="characterResource.value()!.status === 'Deceased' || characterResource.value()!.status === 'Dead'"
+                [class.badge-warning]="characterResource.value()!.status !== 'Alive' && characterResource.value()!.status !== 'Deceased'"
+              >
+                {{ characterResource.value()!.status || 'Desconocido' }}
+              </span>
+            </div>
+
+            <div>
+              @if (authService.currentUser()) {
+                <button
+                  class="btn btn-sm transition-all duration-300 gap-2 rounded-xl shadow-sm"
+                  [class.btn-warning]="isFavorite()"
+                  [class.btn-outline]="!isFavorite()"
+                  (click)="toggleFavorite()"
+                >
+                  @if (isFavorite()) {
+                    ★ Guardado en favoritos
+                  } @else {
+                    ☆ Agregar a favoritos
+                  }
+                </button>
+              } @else {
+                <a class="btn btn-ghost btn-sm text-xs border border-dashed border-base-300 rounded-xl" routerLink="/auth">
+                  Inicia sesión para guardar favoritos
+                </a>
+              }
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </article>
+  }
+</section>

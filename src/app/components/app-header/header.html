@@ -1,3 +1,62 @@
+<header class="app-header">
+
+  <span class="app-header__brand">
+    {{ brand() | uppercase }}
+  </span>
+
+  <nav class="app-header__nav">
+
+    <a
+      class="nav-link"
+      routerLink="/"
+      routerLinkActive="nav-link--active"
+      [routerLinkActiveOptions]="{ exact: true }"
+    >
+      Inicio
+    </a>
+
+    <a
+      class="nav-link"
+      routerLink="/students"
+      routerLinkActive="nav-link--active"
+    >
+      Estudiantes
+    </a>
+
+    <a
+      class="nav-link"
+      routerLink="/layouts"
+      routerLinkActive="nav-link--active"
+    >
+      Layouts
+    </a>
+
+    <a
+      class="nav-link"
+      routerLink="/signup"
+      routerLinkActive="nav-link--active"
+    >
+      Sign Up
+    </a>
+
+    <a
+      class="nav-link"
+      routerLink="/profile"
+      routerLinkActive="nav-link--active"
+    >
+      Perfil
+    </a>
+
+    <!-- NUEVO -->
+    <a
+      class="nav-link"
+      routerLink="/project-config"
+      routerLinkActive="nav-link--active"
+    >
+      Proyecto
+    </a>
+
+  </nav>
 <header class="max-lg:collapse bg-base-100 shadow-sm w-full rounded-md">
 
   <input
@@ -13,15 +72,12 @@
 
   <div class="collapse-title navbar px-4">
 
-    <!-- LEFT -->
     <div class="navbar-start">
 
-      <!-- MOBILE BTN -->
       <label
         for="navbar-toggle"
         class="btn btn-ghost lg:hidden"
       >
-
         <svg
           xmlns="http://www.w3.org/2000/svg"
           class="h-5 w-5"
@@ -29,58 +85,76 @@
           viewBox="0 0 24 24"
           stroke="currentColor"
         >
-
           <path
             stroke-linecap="round"
             stroke-linejoin="round"
             stroke-width="2"
             d="M4 6h16M4 12h8m-8 6h16"
           />
-
         </svg>
-
       </label>
 
       <a
         class="btn btn-ghost text-xl"
         routerLink="/"
       >
-        PPW ANGULAR 21
+        {{ brand() | uppercase }}
       </a>
 
     </div>
 
-    <!-- DESKTOP -->
     <div class="navbar-center hidden lg:flex">
 
       <ul class="menu menu-horizontal px-1">
 
         <li>
-          <a routerLink="/" routerLinkActive="menu-active" [routerLinkActiveOptions]="{ exact: true }">
+          <a
+            routerLink="/"
+            routerLinkActive="menu-active"
+            [routerLinkActiveOptions]="{ exact: true }"
+          >
             Inicio
           </a>
         </li>
 
         <li>
-          <a routerLink="/students" routerLinkActive="menu-active">
+          <a
+            routerLink="/students"
+            routerLinkActive="menu-active"
+          >
             Estudiantes
           </a>
         </li>
 
         <li>
-          <a routerLink="/layouts" routerLinkActive="menu-active">
+          <a
+            routerLink="/layouts"
+            routerLinkActive="menu-active"
+          >
             Layouts
           </a>
         </li>
 
-        <!-- ✅ ARREGLADO -->
         <li>
-          <a routerLink="/componentes" routerLinkActive="menu-active">
+          <a
+            routerLink="/ui-components"
+            routerLinkActive="menu-active"
+          >
             Componentes
           </a>
         </li>
 
-        <!-- SUBMENU -->
+        @if (userRole() === 'admin') {
+          <li>
+            <a
+              routerLink="/simpsons"
+              routerLinkActive="menu-active"
+            >
+              Simpsons
+            </a>
+          </li>
+        }
+
         <li>
 
           <details>
@@ -89,23 +163,41 @@
               Formularios
             </summary>
 
-            <ul class="p-2 bg-base-100 rounded-box shadow">
+            <ul class="p-2 bg-base-100 rounded-box shadow z-50">
 
               <li>
-                <a routerLink="/signup" routerLinkActive="menu-active">
+                <a
+                  routerLink="/signup"
+                  routerLinkActive="menu-active"
+                >
                   Signup
                 </a>
               </li>
 
               <li>
-                <a routerLink="/profile" routerLinkActive="menu-active">
+                <a
+                  routerLink="/profile"
+                  routerLinkActive="menu-active"
+                >
                   Perfil
                 </a>
               </li>
 
               <li>
-                <a routerLink="/project-config" routerLinkActive="menu-active">
+                <a
+                  routerLink="/project-config"
+                  routerLinkActive="menu-active"
+                >
                   Configurar Proyecto
+                </a>
+              </li>
+
+              <li>
+                <a
+                  routerLink="/auth"
+                  routerLinkActive="menu-active"
+                >
+                  Auth
                 </a>
               </li>
 
@@ -119,39 +211,75 @@
 
     </div>
 
-    <div class="navbar-end"></div>
+    <div class="navbar-end gap-2">
+      @if (currentUser()) {
+        <span class="hidden text-sm text-base-content/60 lg:block font-medium">
+          {{ currentUser()!.email }}
+        </span>
+
+        <button class="btn btn-ghost btn-sm border border-base-300 rounded-xl" (click)="logout()">
+          Cerrar sesión
+        </button>
+      } @else {
+        <a class="btn btn-primary btn-sm px-4 rounded-xl" routerLink="/auth">
+          Iniciar sesión
+        </a>
+      }
+    </div>
 
   </div>
 
-  <!-- MOBILE -->
   <div class="collapse-content lg:hidden z-10">
 
     <ul class="menu rounded-box bg-base-200">
 
       <li>
-        <a routerLink="/">
+        <a
+          routerLink="/"
+          routerLinkActive="menu-active"
+          [routerLinkActiveOptions]="{ exact: true }"
+        >
           Inicio
         </a>
       </li>
 
       <li>
-        <a routerLink="/students">
+        <a
+          routerLink="/students"
+          routerLinkActive="menu-active"
+        >
           Estudiantes
         </a>
       </li>
 
       <li>
-        <a routerLink="/layouts">
+        <a
+          routerLink="/layouts"
+          routerLinkActive="menu-active"
+        >
           Layouts
         </a>
       </li>
 
-      <!-- ✅ ARREGLADO -->
       <li>
-        <a routerLink="/componentes">
+        <a
+          routerLink="/ui-components"
+          routerLinkActive="menu-active"
+        >
           Componentes
         </a>
       </li>
+
+      @if (userRole() === 'admin') {
+        <li>
+          <a
+            routerLink="/simpsons"
+            routerLinkActive="menu-active"
+          >
+            Simpsons
+          </a>
+        </li>
+      }
 
       <li>
 
@@ -164,20 +292,38 @@
           <ul>
 
             <li>
-              <a routerLink="/signup">
+              <a
+                routerLink="/signup"
+                routerLinkActive="menu-active"
+              >
                 Signup
               </a>
             </li>
 
             <li>
-              <a routerLink="/profile">
+              <a
+                routerLink="/profile"
+                routerLinkActive="menu-active"
+              >
                 Perfil
               </a>
             </li>
 
             <li>
-              <a routerLink="/project-config">
+              <a
+                routerLink="/project-config"
+                routerLinkActive="menu-active"
+              >
                 Configurar Proyecto
+              </a>
+            </li>
+
+            <li>
+              <a
+                routerLink="/auth"
+                routerLinkActive="menu-active"
+              >
+                Auth
               </a>
             </li>
 

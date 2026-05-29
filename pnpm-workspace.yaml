@@ -4,6 +4,10 @@ allowBuilds:
   lmdb: false
   msgpackr-extract: false
 
+ignoredBuiltDependencies:
+  - '@firebase/util'
+  - protobufjs
+
 onlyBuiltDependencies:
   - '@parcel/watcher'
   - esbuild
