@@ -2,8 +2,8 @@ import { Component, inject } from '@angular/core';
 import { FormBuilder, Validators, ReactiveFormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
 
-import { passwordMatchValidator } from './validators/password-match.validator';
-import { emailUniqueValidator } from './validators/email-unique.validator';
+import { passwordMatchValidator } from '../signup-page/validators/password-match.validator';
+import { emailUniqueValidator } from '../signup-page/validators/email-unique.validator';
 
 @Component({
   selector: 'app-signup-page',

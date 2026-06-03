@@ -1,9 +1,3 @@
-import { Component, signal } from '@angular/core';
-import {
-  RouterLink,
-  RouterLinkActive,
-} from '@angular/router';
-
 import { Component, inject, signal } from '@angular/core';
 import { Router, RouterLink, RouterLinkActive } from '@angular/router';
 import { UpperCasePipe } from '@angular/common';
@@ -15,7 +9,6 @@ import { AuthService } from '../../core/services/auth.service';
   imports: [
     RouterLink,
     RouterLinkActive,
-    UpperCasePipe,
     UpperCasePipe
   ],
   templateUrl: './header.html',

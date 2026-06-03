@@ -18,6 +18,6 @@ export class AppFooterComponent {
 
   percentage = 0.85;
 
-  student = 'denisse paredes';
+  student = 'Cristina Loja';
 
 }

@@ -27,20 +27,5 @@ export const appConfig: ApplicationConfig = {
     provideFirebaseApp(() => initializeApp(firebaseConfig)),
     provideAuth(() => getAuth()),
     provideFirestore(() => getFirestore()),
-    provideFirebaseApp(() =>
-      initializeApp({
-        projectId: 'ppw-angular-21-4af97',
-        appId: '1:173015093137:web:3fa85b88f354c0943cd430',
-        storageBucket: 'ppw-angular-21-4af97.firebasestorage.app',
-        apiKey: 'AIzaSyAqiTLNo7ZEWswX8IbSipjCBng9mvzS96w',
-        authDomain: 'ppw-angular-21-4af97.firebaseapp.com',
-        messagingSenderId: '173015093137',
-        measurementId: 'G-NPBZ0T9VZ0',
-        projectNumber: '173015093137',
-        version: '2',
-      }),
-    ),
-    provideAuth(() => getAuth()),
-    provideFirestore(() => getFirestore()),
   ],
 };

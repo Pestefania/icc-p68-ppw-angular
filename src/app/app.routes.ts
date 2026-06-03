@@ -7,64 +7,76 @@ import { LayoutsPage } from './features/layouts/pages/layouts-page';
 import { ProfilePage } from './features/profile/pages/profile-page';
 import { ProjectConfigPage } from './features/project/pages/project-config-page';
 import { SignupPage } from './features/signup-page/signup-page';
+import { UiComponentsPage } from './features/ui-components/pages/ui-components-page/ui-components-page';
+/* SIMPSONS */
+import { SimpsonsPageComponent } from './features/simpsons/pages/simpsons-page/simpsons-page';
+import { SimpsonDetailPageComponent } from './features/simpsons/pages/simpson-detail-page/simpson-detail-page';
 
-// IMPORTA TU NUEVA PAGE
-import { UiComponentsPage} from './features/ui-components/pages/ui-components-page/ui-components-page';
+/* AUTH */
+import { AuthPageComponent } from './features/auth/pages/auth-page/auth-page.component';
+
+/* NUEVOS GUARDS ASYNC Y POR ROL */
+import { authGuard } from './core/guards/auth.guard';
+import { guestGuard } from './core/guards/guest.guard';
+import { adminGuard } from './core/guards/admin.guards';
 
 export const routes: Routes = [
-
-  // HOME
   {
     path: '',
     component: HomePage,
   },
-
-  // STUDENTS
   {
     path: 'students',
     component: StudentsPage,
   },
-
-  // STUDENT DETAIL
   {
     path: 'students/:id',
     component: StudentDetailPage,
   },
-
-  // LAYOUTS
   {
     path: 'layouts',
     component: LayoutsPage,
   },
-
-  // COMPONENTES
   {
-    path: 'componentes',
+    path: 'ui-components',
     component: UiComponentsPage,
   },
-
-  // SIGNUP
   {
     path: 'signup',
     component: SignupPage,
   },
-
-  // PROFILE
   {
     path: 'profile',
     component: ProfilePage,
+    canActivate: [authGuard], // Protegida general
   },
-
-  // PROJECT CONFIG
   {
     path: 'project-config',
     component: ProjectConfigPage,
+    canActivate: [authGuard], // Protegida general
   },
 
-  // 404
+  /* SIMPSONS - AMBAS RUTAS AHORA REQUIEREN ROL ADMIN */
+  {
+    path: 'simpsons',
+    component: SimpsonsPageComponent,
+    canActivate: [adminGuard],
+  },
+  {
+    path: 'simpsons/:id',
+    component: SimpsonDetailPageComponent,
+    canActivate: [adminGuard],
+  },
+
+  /* AUTH */
+  {
+    path: 'auth',
+    component: AuthPageComponent,
+    canActivate: [guestGuard],
+  },
+
   {
     path: '**',
     redirectTo: '',
   },
-
 ];
